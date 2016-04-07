@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US"  ng-app="myApp">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script>
+		var app = angular.module('myApp', []);
+
+        app.controller('myCtrl', function($scope) {
+            $scope.pin=0;
+            $scope.location="";
+            $scope.color="";
+
+            $scope.addLamp = function(){
+                    alert('you choose:' + $scope.pin + " " + $scope.color + " " + $scope.location);
+            }
+        });
+
+    alert('ahdab');
+    </script>
+</head>
+<body ng-controller="myCtrl">
+{% verbatim %}
+<div>
+     <input type="text" value="{{pin}}"/>
+    Location :    <input type="text" value="{{location}}"/>
+    Color : <input type="text" value="{{color}}"/>
+
+    <button ng-click="addLamp()">Add</button>
+</div>
+{% endverbatim %}
+
+</body>
+</html>
