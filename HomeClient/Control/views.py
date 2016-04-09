@@ -9,6 +9,7 @@ def getColor(request):
     col = request.GET['c']
     c=Lamp.objects.filter(color=col)
     return HttpResponse(str(c))
+
 def addLamp(request):
     pin=request.GET['pin']
     loc=request.GET['location']

@@ -5,29 +5,38 @@
     <script>
 		var app = angular.module('myApp', []);
 
-        app.controller('myCtrl', function($scope) {
+        app.controller('myCtrl', function($scope,$http) {
             $scope.pin=0;
             $scope.location="";
             $scope.color="";
+            $scope.lamps = "";
+
 
             $scope.addLamp = function(){
-                    alert('you choose:' + $scope.pin + " " + $scope.color + " " + $scope.location);
+                        $http.get("/add?pin=" + $scope.pin + "&location=" + $scope.location + "&color=" + $scope.color)
+                          .then(function(response) {
+                            $scope.lamps = response.data;
+                        });
             }
         });
 
-    alert('ahdab');
     </script>
 </head>
+
 <body ng-controller="myCtrl">
 {% verbatim %}
 <div>
-     <input type="text" value="{{pin}}"/>
-    Location :    <input type="text" value="{{location}}"/>
-    Color : <input type="text" value="{{color}}"/>
+     <input type="text" ng-model="pin"/>
+    Location :    <input type="text" ng-model="location"/>
+    Color : <input type="text" ng-model="color"/>
 
     <button ng-click="addLamp()">Add</button>
+    {{lamps}}
 </div>
 {% endverbatim %}
 
 </body>
+
+
+
 </html>
