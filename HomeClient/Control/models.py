@@ -13,4 +13,3 @@ class Lamp(models.Model):
     def __repr__(self):
         return "Lamp: {},{},{}".format(self.pin, self.location, self.color)
 
-

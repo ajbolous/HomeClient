@@ -19,8 +19,8 @@ from Control import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^lamps', views.getLamps),
-    url(r'^color',views.getColor),
-    url(r'^add',views.addLamp)
-
+    url(r'^lamps', views.allLamps),
+    url(r'^add',views.addLamp),
+    url(r'^invoke',views.changePin),
+    url(r'^$',views.main)
 ]
