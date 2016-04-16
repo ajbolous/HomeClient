@@ -16,10 +16,9 @@
     <script src="/static/ui-bootstrap-tpls-1.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular-animate.min.js"></script>
 
-
-    <link href="/static/angular-toggle-switch/style/bootstrap3/angular-toggle-switch-bootstrap-3.css" media="all"
-          rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="/static/angular-toggle-switch/angular-toggle-switch.js"></script>
+<script src="http://openlayers.org/en/v3.11.2/build/ol.js"></script>
+    <link href="/static/toggle/style/bootstrap3/angular-toggle-switch-bootstrap-3.css" media="all" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/static/toggle/angular-toggle-switch.js"></script>
 
 
     <script src="/static/main.js"></script>
@@ -31,6 +30,25 @@
 <div style="color:#fff;font-size:20px; width:400px; height:30px; background-color:#265a88">
     <img src="/static/images/home.png" height="42" width="42"> Home Control
 </div>
+
+<div id="map" style="width: 100%, height: 400px"></div>
+
+
+<script>
+  var map = new ol.Map({target: 'map'});
+
+   map.setView(new ol.View({
+    center: [0, 0],
+    zoom: 2
+  }));
+     var osmSource = new ol.source.OSM();
+      var osmLayer = new ol.layer.Tile({source: osmSource});
+  map.addLayer(osmLayer);
+</script>
+
+
+
+
 
 <div style="display:block; width:400px">
     <uib-accordion>

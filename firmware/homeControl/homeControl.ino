@@ -5,8 +5,10 @@ byte buff[5] = {100, 100, 100, 100, 100};
 void setup()
 {
   Serial.begin(9600);
-  for (i = 0; i < 14; i++)
+  for (i = 0; i < 14; i++){
     pinMode(i,OUTPUT);
+    digitalWrite(i,1);
+  }
 }
 
 void loop()
